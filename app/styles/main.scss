@@ -4,6 +4,17 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+
+$black: #131919;
+$gray-dark: lighten(#131919, 30%);
+$gray: lighten(#131919, 50%);
+$gray-light: lighten(#131919, 80%);
+$red: #E35C14;
+$blue-light: #76C7C6;
+$blue-dark: #273D3B;
+
+
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -15,6 +26,14 @@ $icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/boots
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  color: $black;
+}
+
+a {
+  color: darken($blue-light, 10%);
+  &:hover {
+    color: darken($blue-light, 10%);
+  }
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -27,7 +46,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -53,10 +71,6 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
 }
 
 /* Supporting marketing content */
@@ -81,10 +95,6 @@ body {
     padding-right: 0;
   }
 
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
 
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
@@ -92,7 +102,109 @@ body {
   }
 }
 
+.logo-ish {
+  display: inline-block;
+  font-size: 2em;
+  line-height: 1.5;
+  color: $gray-dark;
+}
 
 
 
+.banner-primary {
+  background: $red;
+  color: darken($red, 25%);
+  padding: 5rem 0;
+  margin-bottom: 2rem;
 
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+
+// calendar controls
+
+.nav-tabs {
+  margin-bottom: 1rem;
+  > li {
+    float: right;
+  }
+}
+
+// calendar styles
+
+.fc-unthemed {
+
+  .fc-toolbar {
+    h2 {
+      font-weight: 200;
+      color: $red;
+    }
+
+  }
+
+  // date number
+  .fc-basic-view td.fc-day-number {
+    padding: 5px;
+  }
+
+  // result buttons
+  .fc-state-default {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    border: 1px solid $gray;
+    color: $black;
+  }
+
+
+  .fc-today {
+    background: transparent;
+    position: relative;
+    border-top-color: $red;
+    &:before {
+      content: "";
+      border: 10px solid $red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    &.fc-day-number {
+      color: $red;
+    }
+  }
+
+  .fc-day-header {
+    font-weight: 200;
+    color: $gray;
+  }
+
+  .fc-event {
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+.event-listing {
+  h2 {
+    font-weight: 200;
+    color: $red;
+  }
+
+  .list-container {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 6rem;
+    }
+  }
+
+}

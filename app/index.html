@@ -31,14 +31,25 @@
         <ul class="nav nav-pills pull-right">
           <li><a href="#" data-toggle="modal" data-target="#about-modal">About</a></li>
         </ul>
-        <h3 class="text-muted">Boston Civic Tech Calendar</h3>
+        <!-- <h3 class="text-muted">Boston Civic Tech Calendar</h3> -->
+        <span class="glyphicon glyphicon-calendar logo-ish"></span>
       </div>
+    </div>
 
-      <div class="jumbotron">
+    <div class="banner-primary">
+      <div class="container">
         <h1>Boston Civic Tech Ecosystem Calendar.</h1>
-        <p class="lead">This is a project to create an aggregate calendar of Civic Tech events in the Boston area. We're working hard on increasing functionality and content so, in the mean time, please <a href="mailto:hello@codeforboston.org?subject='Boston Civic Tech Calendar'" target"_blank">let us know what <em>you</em> would like to see here!</a></p>
-      </div>
+        <div class="alert " role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
+          <p class="lead">This is a project to create an aggregate calendar of Civic Tech events in the Boston area. We're working hard on increasing functionality and content so, in the mean time, please <a href="mailto:hello@codeforboston.org?subject='Boston Civic Tech Calendar'" target"_blank">let us know what <em>you</em> would like to see here!</a></p>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="container">
       <section>
 
         <div role="tabpanel">
@@ -58,9 +69,9 @@
 
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="listing">
-              <h1>Upcoming Events</h1>
-              <ul class="list-container">
+            <div role="tabpanel" class="tab-pane event-listing" id="listing">
+              <h2>Upcoming Events</h2>
+              <ul class="list-container" data-hook="list-container">
 
               </ul>
             </div>
