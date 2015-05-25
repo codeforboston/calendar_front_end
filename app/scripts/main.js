@@ -5,8 +5,9 @@
   'use strict';
 
   var API = {
-    // EVENTS: 'https://boston-civic-calendar.herokuapp.com/api/v1/events',
-    EVENTS: 'http://localhost:3000/api/v1/events',
+    EVENTS: 'https://boston-civic-calendar.herokuapp.com/api/v1/events',
+    NEW_SOURCE: 'https://boston-civic-calendar.herokuapp.com/source/new',
+    // EVENTS: 'http://localhost:3000/api/v1/events',
   }
 
   var DAYS_OF_THE_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -36,6 +37,25 @@
       };
     });
   }
+
+  function linkify (text) {
+    return text.split(' ')
+        .map(function(s){
+          if(s.toLowerCase().indexOf('http') == 0) {
+            return "<a href='"+s+"' target='_blank'>"+s+"</a>";
+          } else {
+            return s;
+          }
+        })
+        .join(' ');
+  }
+
+
+// setup bootstrap stuff
+
+$('[data-toggle="tooltip"]').tooltip()
+
+$('[data-hook="new-source-link"]').attr('href', API.NEW_SOURCE);
 
 
 
@@ -81,7 +101,7 @@
           tpl.find('.date').text(moment(event.start_date).format('L')+' - '+moment(event.end_date).format('L'));
         }
         tpl.find('.location').text(event.location);
-        tpl.find('.description').text(event.description);
+        tpl.find('.description').html( linkify(event.description) );
 
         $listContainer.append(tpl);
       }
