@@ -30,7 +30,10 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li><a href="#" data-toggle="modal" data-target="#about-modal">About</a></li>
-          <li><a href="#" data-hook="new-source-link" target="_blank" data-toggle="tooltip"  data-placement="bottom" title="This calendar is an aggregate of other calendars, called 'sources'. Think we're missing something? add one!">+ Add a Source</a></li>
+          <li><a href="#" data-hook="new-source-link" target="_blank" data-toggle="tooltip"  data-placement="bottom" title="This calendar is an aggregate of other calendars, called 'sources'. Think we're missing something? add one!">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add a Source
+          </a></li>
         </ul>
         <!-- <h3 class="text-muted">Boston Civic Tech Calendar</h3> -->
         <span class="glyphicon glyphicon-calendar logo-ish"></span>
@@ -51,9 +54,13 @@
     </div>
 
     <div class="container">
-      <section>
-
-        <div role="tabpanel">
+      <section class="main-section" data-hook="main">
+        <div data-hook="error-panel" class="alert alert-warning text-center hidden">
+          <h2>Whoops! It looks like something went wrong here.</h2>
+          <p>Sorry about that, we're still working out a few things.</p>
+          <p>If you have any questions, feel free to send us an email at <a href="mailto:hello@codeforboston.org">hello@codeforboston.org</a>.</p>
+        </div>
+        <div role="tabpanel" data-hook="events-panel" class="hidden">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">Calendar</a></li>
@@ -65,16 +72,16 @@
 
             <div role="tabpanel" class="tab-pane active" id="calendar">
 
-              <div class="calendar-container">
+              <div class="calendar-container" data-hook="calendar-container">
               </div>
 
             </div>
 
             <div role="tabpanel" class="tab-pane event-listing" id="listing">
               <h2>Upcoming Events</h2>
-              <ul class="list-container" data-hook="list-container">
+              <div class="list-container" data-hook="list-container">
 
-              </ul>
+              </div>
             </div>
           </div>
 
@@ -82,6 +89,14 @@
 
       </section>
 
+      <section data-hook="calendar-detail" class="hidden calendar-detail pane pane-right">
+        <button data-hook="hide-detail" type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <h2 data-hook="date"></h2>
+        <div class="events" data-hook="calendar-detail-events-list"></div>
+
+      </section>
 
       <div class="footer">
         <p>Built with ♥ by Code For Boston</p>
@@ -109,6 +124,28 @@
       </div>
     </div>
 
+
+
+
+    <!-- Templates -->
+
+
+    <script type="text/template" id="calendar-list">
+      <ul>
+        <% _.forEach(events, function(e){ %>
+          <li>
+            <h3 class="title"> <%= e.title %> </h3>
+            <h4 class="text-muted"><em class="date"> <%= e.dateString %>  </em></h4>
+            <p><strong class="location"> <%= e.location %> </strong></p>
+            <p class="description"> <%= e.description %> </p>
+          </li>
+        <% }); %>
+      </ul>
+    </script>
+
+    <script type="text/template"></script>
+
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -124,6 +161,7 @@
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/moment/moment.js"></script>
     <script src="../bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
