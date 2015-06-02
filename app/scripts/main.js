@@ -10,7 +10,7 @@
   var API = {
     // EVENTS: 'http://localhost:3000/api/v1/events?page=1&page_count=50',
     EVENTS: 'https://boston-civic-calendar.herokuapp.com/api/v1/events',
-    NEW_SOURCE: 'https://boston-civic-calendar.herokuapp.com/source/new',
+    NEW_SOURCE: 'https://boston-civic-calendar.herokuapp.com/sources/new',
   };
 
   // var DAYS_OF_THE_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
