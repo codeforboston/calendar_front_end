@@ -134,7 +134,7 @@
       <ul>
         <% _.forEach(events, function(e){ %>
           <li>
-            <h3 class="title"> <%= e.title %> </h3>
+            <h3 class="title"> <%= e.title %> <% if (e.organizer) { %> | <%= e.organizer %> <% } %> </h3>
             <h4 class="text-muted"><em class="date"> <%= e.dateString %>  </em></h4>
             <p><strong class="location"> <%= e.location %> </strong></p>
             <p class="description"> <%= e.description %> </p>

@@ -62,6 +62,7 @@
         title: e.title,
         start: moment(e.start_date),
         end: moment(e.end_date),
+        organizer: e.organizer,
         url: e.url,
         editable: false,
         startEditable: false,
@@ -117,6 +118,7 @@
 
     return {
             title: event.title,
+            organizer: event.organizer,
             dateString: dateString,
             location: event.location,
             description: linkify(event.description)
@@ -153,13 +155,31 @@ $.getJSON(API.EVENTS)
       events: fullCalEvents,
       theme: false,
       aspectRatio: 2,
+      header: {
+          left:   'title',
+          center: 'month,agendaWeek,agendaDay',
+          right:  'today prev,next'
+      },
       dayClick: function(date) {
         var eventsOnDay = getEventsOnDate(events, date);
         $DOC.trigger('calendarDetail:show', { events: eventsOnDay });
       },
-      eventClick: function() {
-        console.log('handle event click. show single event in pane?');
-
+      eventClick: function(event) {
+        // TODO: this pulls day1 of multi-day events which is wrong if you click on another day... meh. fix soon.
+        var eventsOnDay = getEventsOnDate(events, event._start);
+        $DOC.trigger('calendarDetail:show', { events: eventsOnDay });
+        return false;
+      },
+      eventMouseover: function(event) {
+        $(this).tooltip({
+          title: event.title + ' <br/> ' + event.organizer,
+          html: true
+        })
+        $(this).tooltip('show');
+      },
+      eventMouseout: function(event) {
+        $(this).tooltip('hide');
+        $(this).tooltip('destroy');
       }
     });
 
@@ -184,10 +204,11 @@ $.getJSON(API.EVENTS)
      var tplData = {
                     events: _.map(data.events, formatEventListItemData)
                   };
-    var tpl = TEMPLATES.calendarList(tplData);
-    DOM.$calendarDetailList.html(tpl);
-
-    DOM.$calendarDetail.removeClass('hidden');
+    if( tplData.events.length ) {
+      var tpl = TEMPLATES.calendarList(tplData);
+      DOM.$calendarDetailList.html(tpl);
+      DOM.$calendarDetail.removeClass('hidden');
+    }
 
   });
 
