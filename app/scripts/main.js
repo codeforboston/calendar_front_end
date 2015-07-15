@@ -26,7 +26,7 @@
 
   var DOM = {
     $tooltips:        $('[data-toggle="tooltip"]'),
-    $newSourceLink:   $('[data-hook="new-source-link"]'),
+    $newSourceLink:   $('[data-hook="new-event-link"]'),
     $main:            $('[data-hook=main]'),
     $eventsPanel:     $('[data-hook=events-panel]'),
     $errorPanel:      $('[data-hook=error-panel]'),
