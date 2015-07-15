@@ -10,7 +10,7 @@
   var API = {
     // EVENTS: 'http://localhost:3000/api/v1/events?page=1&page_count=50',
     EVENTS: 'https://boston-civic-calendar.herokuapp.com/api/v1/events',
-    NEW_SOURCE: 'https://boston-civic-calendar.herokuapp.com/sources/new',
+    NEW_EVENT: 'https://boston-civic-calendar.herokuapp.com/events/new',
   };
 
   // var DAYS_OF_THE_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -133,7 +133,7 @@
 
 DOM.$tooltips.tooltip();
 
-DOM.$newSourceLink.attr('href', API.NEW_SOURCE);
+DOM.$newSourceLink.attr('href', API.NEW_EVENT);
 
 
 
@@ -174,10 +174,10 @@ $.getJSON(API.EVENTS)
         $(this).tooltip({
           title: event.title + ' <br/> ' + event.organizer,
           html: true
-        })
+        });
         $(this).tooltip('show');
       },
-      eventMouseout: function(event) {
+      eventMouseout: function() {
         $(this).tooltip('hide');
         $(this).tooltip('destroy');
       }
