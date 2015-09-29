@@ -17,7 +17,7 @@
   // var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   // var DAYS_PER_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  // var today = new Date();
+  var TODAY = new Date();
 
 
   // DOM stuff
@@ -185,9 +185,13 @@ $.getJSON(API.EVENTS)
 
 
 
+    var upcomingEvents = _.chain(events).filter(function(event){
+      return moment(TODAY).isBefore(event.start_date);
+    }).sortBy('start_date').value();
+
 
     var tplData = {
-                    events: _.map(events, formatEventListItemData)
+                    events: _.map(upcomingEvents, formatEventListItemData)
                   };
     var tpl = TEMPLATES.calendarList(tplData);
     DOM.$calendarList.append(tpl);
