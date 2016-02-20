@@ -10,9 +10,13 @@ $black: #131919;
 $gray-dark: lighten(#131919, 30%);
 $gray: lighten(#131919, 50%);
 $gray-light: lighten(#131919, 80%);
-$red: #E35C14;
-$blue-light: #76C7C6;
-$blue-dark: #273D3B;
+$red: #CE324A;
+$blue-light: #65B3E0;
+$blue-dark: darken(#65B3E0, 30%);
+
+$font-family-base: 'Open Sans', Helvetica, Arial, sans-serif;
+$headings-font-family: 'Merriweather', serif;
+
 
 
 
@@ -35,6 +39,12 @@ a {
   &:hover {
     color: darken($blue-light, 10%);
   }
+}
+
+
+h1, h2, h3 {
+
+  font-family: $headings-font-family;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -116,16 +126,9 @@ a {
 
 .banner-primary {
   background: $red;
-  color: darken($red, 25%);
+  color: white;
   padding: 5rem 0;
   margin-bottom: 2rem;
-
-  a {
-    color: white;
-    &:hover {
-      color: white;
-    }
-  }
 }
 
 
@@ -204,9 +207,9 @@ a {
     color: $red;
   }
 
-  .list-container {
-    list-style: none;
+  .list-container ul {
     padding: 0;
+    list-style: none;
 
     li {
       margin-bottom: 6rem;
@@ -215,6 +218,9 @@ a {
 
 }
 
+.events ul {
+  list-style: none;
+}
 
 
 
@@ -234,8 +240,7 @@ a {
 
   &.hidden {
     display: block !important;
-    visibility: none;
-
+    visibility: hidden;
   }
 
   &.pane-right {
@@ -247,6 +252,23 @@ a {
 
 
 
+
+}
+.pane.hidden + .pane-dim {
+  visibility: hidden;
+  opacity: 0;
+}
+.pane-dim {
+  background: rgba(0,0,0,0.5);
+  transition: all 250ms ease-in-out;
+  visibility: visible;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
 
 

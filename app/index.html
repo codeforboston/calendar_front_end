@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:300,300italic' rel='stylesheet' type='text/css'>
+
     <title>Boston Civic Tech Calendar</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -30,10 +33,6 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li><a href="#" data-toggle="modal" data-target="#about-modal">About</a></li>
-          <li><a href="#" data-hook="new-event-link" target="_blank" data-toggle="tooltip"  data-placement="bottom" title="Think we're missing an event? add one!">
-            <span class="glyphicon glyphicon-plus"></span>
-            Add Your Event
-          </a></li>
         </ul>
         <!-- <h3 class="text-muted">Boston Civic Tech Calendar</h3> -->
         <span class="glyphicon glyphicon-calendar logo-ish"></span>
@@ -42,7 +41,12 @@
 
     <div class="banner-primary">
       <div class="container">
-        <h1>Boston Civic Tech Ecosystem Calendar.</h1>
+        <h1>Boston Civic Tech Calendar.</h1>
+        <div class="text-right">
+          <a class="btn btn-default btn-lg" href="#" data-hook="new-event-link" target="_blank" data-toggle="tooltip"  data-placement="top" title="Think we're missing an event? add one!">
+            Add An Event
+          </a>
+        </div>
       </div>
     </div>
 
@@ -90,6 +94,7 @@
         <div class="events" data-hook="calendar-detail-events-list"></div>
 
       </section>
+      <div data-hook="pane-dim" class="pane-dim"></div>
 
       <div class="footer">
         <div class="row">
@@ -163,17 +168,17 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script> -->
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script> -->
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script> -->
         <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
         <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
         <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
         <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script> -->
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script> -->
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script> -->
+        <!-- <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script> -->
         <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
         <!-- endbuild -->
 
