@@ -8,8 +8,8 @@
   // Constants
 
   var API = {
-    EVENTS: 'http://localhost:3000/api/v1/events?page=1&page_count=50',
-    // EVENTS: 'https://boston-civic-calendar.herokuapp.com/api/v1/events',
+    // EVENTS: 'http://localhost:3000/api/v1/events?page=1&page_count=50',
+    EVENTS: 'https://boston-civic-calendar.herokuapp.com/api/v1/events',
     NEW_EVENT: 'https://boston-civic-calendar.herokuapp.com/events/new',
   };
 
